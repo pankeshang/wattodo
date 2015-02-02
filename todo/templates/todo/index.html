@@ -1,0 +1,19 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<div class="col-md-10 col-md-offset-1" style="text-align: center">
+  
+  <table class="table" >
+    <tr>
+      <td><a href="{% url 'recommend' %}" class="btn btn-primary btn-lg">Gimme a task</a></td>
+    </tr>
+    <tr>  
+      <td><a href="{% url 'items' %}" class="btn btn-info btn-lg">List all tasks</a></td>
+    </tr>
+    <tr>
+      <td><a href="{% url 'add-item' %}" class="btn btn-warning btn-lg">Create a new task</a></td>
+    </tr>
+  </table>
+</div>
+  
+{% endblock %}

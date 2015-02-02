@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h3>How about...</h3>
+    <h1>{{todo.title}}</h1>
+    <div class="jumbotron">
+      {{todo.desc}}
+    </div>
+    <div class="1jumbotron">
+      this will cost you about ...
+      <h3>{{todo.minimum_timeslot}} minutes</h3>
+    </div>
+    <div>Not convienced?</div>
+    <a href="{%url 'recommend' %}" class="btn btn-lg btn-primary">Gimme another one!</a>
+
+  </div>
+</div>
+{% endblock %}

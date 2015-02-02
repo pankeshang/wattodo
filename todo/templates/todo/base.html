@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Truuue Backend Management</title>
+  
+  {% comment %}
+  <!-- Google Visualization -->
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+  {% endcomment%}
+  
+  <!-- JQuery -->
+  <script type="text/javascript" src="{{ STATIC_URL }}bower_components/jquery/dist/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <link href="{{ STATIC_URL }}bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="{{ STATIC_URL }}bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- JQuery UI -->    
+  <link rel="stylesheet" href="{{STATIC_URL}}jquery-ui-1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+  <script src="{{STATIC_URL}}jquery-ui-1.10.0/js/jquery-ui-1.10.0.custom.min.js"></script>
+  
+  <script>
+  $(function() {
+    $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+  });
+  </script>
+
+  </head>
+  
+  <body>
+      <div class="container-fluid">
+        {% include "todo/menu.html" %}
+        {% block content %}{% endblock %}
+      </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<div class="col-md-10 col-md-offset-1" style="text-align: center">
+  <h2>All Active Items</h2>  
+  
+  <div>
+    <a href="{% url 'add-item' %}" class="btn btn-primary">Add New</a> 
+    <a href="{% url 'index' %}" class="btn btn-success">Index</a> 
+  </div>
+  
+  <table class="table" >
+    <tr style="font-weight:bold">
+      <td>Title</td>
+      <td>Desc</td>
+      <td>Minimum timeslot</td>
+      <td>Ops</td>
+    </tr>
+    {% for item in items %}
+    <tr>
+      <td><a href="{% url 'edit-item' item_id=item.pk %}">{{item.title}}</a></td>
+      <td><sub>{{item.desc}}</sub></td>
+      <td><sub>{{item.minimum_timeslot}}</sub></td>
+      <td><a href="{% url 'delete-item' item_id=item.pk %}" class="btn btn-xs btn-danger">Delete</a>
+    </tr>
+    {% endfor %}
+  </table>
+  
+</div>
+  
+{% endblock %}
