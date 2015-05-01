@@ -3,8 +3,8 @@ from django.db import models
 
 
 class Todo(models.Model):
-    created_at = models.DateTimeField(auto_now=True, auto_now_add=True)
-    modified_at = models.DateTimeField(auto_now=True, auto_now_add=True)
+    created_at = models.DateTimeField( auto_now_add=True)
+    modified_at = models.DateTimeField( auto_now_add=True)
     title = models.CharField(max_length=500, default="")
     desc = models.TextField(default="")
 
@@ -22,3 +22,8 @@ class Todo(models.Model):
 
     def __unicode__(self):
         return "%d - %s - %s" % (self.pk, self.title, self.status,)
+
+
+class TaskLog(models.Model):
+    task = models.ForeignKey(Todo)
+    created_at = models.DateTimeField(auto_now_add=True)

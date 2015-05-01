@@ -2,7 +2,7 @@
 db.sqlite3
 
 # bower
-static_dev/bower_components/
+#static_dev/bower_components/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -16,7 +16,7 @@ __pycache__/
 env/
 build/
 develop-eggs/
-dist/
+#dist/
 downloads/
 eggs/
 lib/

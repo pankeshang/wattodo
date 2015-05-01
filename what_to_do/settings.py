@@ -88,8 +88,9 @@ STATIC_ROOT = BASE_DIR + '/static/'
 
 STATICFILES_DIRS = (
     BASE_DIR + '/static_dev/',
+    BASE_DIR + '/bower_components/',
 )
-
+print '>> STATICFILES_DIRS:', STATICFILES_DIRS
 
 # Templates 
 TEMPLATE_DIRS = (

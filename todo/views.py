@@ -2,6 +2,9 @@
 from django.shortcuts import render, render_to_response
 import django.http as http
 from django.template import RequestContext
+from django.core.urlresolvers import reverse
+from django.contrib import messages
+
 
 import math
 import random
@@ -16,7 +19,7 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
-    return render_to_response("todo/index.html", locals(), context_instance=RequestContext(request))
+        return render_to_response("todo/index.html", locals(), context_instance=RequestContext(request))
 
 
 def add_item(request):
@@ -70,6 +73,7 @@ class ItemView(View):
 
         return render_to_response("todo/item.html", locals(), context_instance=RequestContext(request))            
 
+
 def recommend(request):
     todos = models.Todo.objects.filter(status="active")
     todo_pks = [i.pk for i in todos]
@@ -77,6 +81,15 @@ def recommend(request):
     todo = todos.get(pk=rand_choice)
     return render_to_response("todo/recommend.html", locals(), context_instance=RequestContext(request))
 
+
+def do_item(request, item_id):
+    task = models.Todo.objects.get(pk=item_id)
+    log = models.TaskLog.objects.create(task=task)
+    messages.add_message(request, messages.INFO, 'Okie, go do it!')
+    return http.HttpResponseRedirect(reverse('index'))
+
+def history(request):
+    return render(request, "todo/history.html", {'logs': models.TaskLog.objects.all()} )
 
 import django.forms as forms
 class ItemForm(forms.ModelForm):

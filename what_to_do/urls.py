@@ -17,7 +17,10 @@ urlpatterns = patterns('',
     url(r'^items/add$', 'todo.views.add_item', name='add-item'),
     url(r'^items/(?P<item_id>\d+)$', ItemView.as_view(), name='edit-item'),
     url(r'^items/(?P<item_id>\d+)/delete$', 'todo.views.delete_item', name='delete-item'),
+    url(r'^items/(?P<item_id>\d+)/do$', 'todo.views.do_item', name='do-item'),
     url(r'^recommend$', 'todo.views.recommend', name='recommend'),
+    url(r'^history$', 'todo.views.history', name='history'),
+
 )
 
 

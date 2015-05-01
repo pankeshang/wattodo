@@ -2,7 +2,13 @@
 
 {% block content %}
 <div class="col-md-10 col-md-offset-1" style="text-align: center">
-  
+  {% if messages %}
+  <p class="text-info bg-info">
+    {% for message in messages %}
+   <h1>{{ message }}</h1><br/>
+    {% endfor %}
+  </p>
+  {% endif %}
   <table class="table" >
     <tr>
       <td><a href="{% url 'recommend' %}" class="btn btn-primary btn-lg">Gimme a task</a></td>
